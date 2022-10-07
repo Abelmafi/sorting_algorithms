@@ -1,5 +1,4 @@
 #include "sort.h"
-#include <stdlib.h>
 /**
  * insertion_sort_list - sorts doubly linked list of intigiers
  * in ascending order.
@@ -9,10 +8,10 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *right=NULL, *left=NULL;
-	listint_t *current = *list, *temp=NULL;
+	listint_t *right = NULL, *left = NULL, *temp = NULL;
+	listint_t *current = *list;
 
-	while(current->next)
+	while (current->next)
 	{
 		temp = current;
 		current = current->next;
@@ -32,7 +31,7 @@ void insertion_sort_list(listint_t **list)
 				right->next = left;
 				if (left->next)
 					left->next->prev = left;
-				while((*list)->prev)
+				while ((*list)->prev)
 					*list = (*list)->prev;
 				print_list(*list);
 			}
