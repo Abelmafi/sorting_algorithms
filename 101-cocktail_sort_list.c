@@ -31,6 +31,9 @@ void cocktail_sort_list(listint_t **list)
 	int c = 0, n = -1, m = -1;
 	listint_t *current = *list, *temp;
 
+	if (!list || !*list || (!(*list)->prev && !(*list)->next))
+		return;
+
 	while (m >= n)
 	{
 		n++;
