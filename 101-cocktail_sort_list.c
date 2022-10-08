@@ -29,10 +29,11 @@ void swap(listint_t **left, listint_t **right)
 void cocktail_sort_list(listint_t **list)
 {
 	int c = 0, n = -1, m = -1;
-	listint_t *current = *list, *temp;
+	listint_t *current, *temp;
 
 	if (!list || !*list || (!(*list)->prev && !(*list)->next))
 		return;
+	current = *list;
 	while (m >= n)
 	{
 		n++;
@@ -56,14 +57,12 @@ void cocktail_sort_list(listint_t **list)
 		while (current->prev && c >= n)
 		{
 			if (current->n < current->prev->n)
-			{
-				temp = current->prev;
+			{	temp = current->prev;
 				swap(&temp, &current);
 				current = temp;
 				if ((*list)->prev)
 					*list = (*list)->prev;
-				print_list(*list);
-			}
+				print_list(*list);	}
 			c--;
 			current = current->prev;
 		}
