@@ -48,17 +48,15 @@ int partition(int *array, int low, int high, int size)
 			}
 		}
 	}
-	i++;
-	if (i != high)
-	{
-		swap(array, i, high);
-		print_array(array, size);
-	}
+	/*i++;*/
+	/*if (i != high)*/
+		/*swap(array, i, high);*/
+		/*print_array(array, size);*/
 	return (i);
 }
 
 /**
- * quicksort - implements QuickSort.
+ * lomato_qsort - implements QuickSort.
  * @array: array to be sorted.
  * @low: Starting index.
  * @high: ending index.
@@ -66,18 +64,16 @@ int partition(int *array, int low, int high, int size)
  *
  * Return: always nothing
  */
-void quicksort(int *array, int low, int high, int size)
+void lomato_qsort(int *array, int low, int high, int size)
 {
 	int p;
 
-	if (low >= high || low < 0)
-		return;
 	if (low < high)
 	{
-	p = partition(array, low, high, size);
+		p = partition(array, low, high, size);
 
-	quicksort(array,  low, p - 1, size);
-	quicksort(array, p + 1, high, size);
+		lomato_qsort(array,  low, p - 1, size);
+		lomato_qsort(array, p + 1, high, size);
 	}
 }
 
@@ -90,9 +86,5 @@ void quicksort(int *array, int low, int high, int size)
  */
 void quick_sort(int *array, size_t size)
 {
-	int low = 0, high = size - 1;
-
-	if (size < 2)
-		return;
-	quicksort(array, low, high, size);
+	lomato_qsort(array, 0, size - 1, size);
 }
