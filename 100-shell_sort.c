@@ -9,8 +9,8 @@
  */
 void shell_sort(int *array, size_t size)
 {
-	int interval = 0, gap, temp;
-	size_t i, j, g = 0;
+	int interval = 0, temp;
+	size_t i, j, g = 0, gap;
 
 	while (g < size / 3)
 	{
