@@ -48,10 +48,12 @@ int partition(int *array, int low, int high, int size)
 			}
 		}
 	}
-	/*i++;*/
-	/*if (i != high)*/
-		/*swap(array, i, high);*/
-		/*print_array(array, size);*/
+	i++;
+	if (i != high)
+	{
+		swap(array, i, high);
+		print_array(array, size);
+	}
 	return (i);
 }
 
