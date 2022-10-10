@@ -1,11 +1,15 @@
 #include "sort.h"
+
+void swap_int(int *a, int *b);
+void heapify(int *array, size_t size, size_t N, size_t i);
+void heap_sort(int *array, size_t size);
 /**
  * swap - swap position of two element.
  * @a: frist pointer.
  * @b: second pointer.
  * Return: none.
  */
-void swap(int *a, int *b)
+void swap_int(int *a, int *b)
 {
 	int temp = *a;
 	*a = *b;
@@ -33,7 +37,7 @@ void heapify(int *array, size_t size, size_t N, size_t i)
 
 	if (largest != i)
 	{
-		swap(array + i, array + largest);
+		swap_int(array + i, array + largest);
 		print_array(array, size);
 		heapify(array, size, N, largest);
 	}
@@ -58,7 +62,7 @@ void heap_sort(int *array, size_t size)
 
 	for (i = size - 1; i >= 0; i--)
 	{
-		swap(array, array + i);
+		swap_int(array, array + i);
 		print_array(array, size);
 		heapify(array, size, i, 0);
 	}
