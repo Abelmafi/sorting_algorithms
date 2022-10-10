@@ -4,7 +4,7 @@ void swap_int(int *a, int *b);
 void heapify(int *array, size_t size, size_t N, size_t i);
 void heap_sort(int *array, size_t size);
 /**
- * swap_inr - swap position of two element.
+ * swap_int - swap position of two element.
  * @a: frist pointer.
  * @b: second pointer.
  * Return: none.
