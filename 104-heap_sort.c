@@ -4,7 +4,7 @@ void swap_int(int *a, int *b);
 void heapify(int *array, size_t size, size_t N, size_t i);
 void heap_sort(int *array, size_t size);
 /**
- * swap - swap position of two element.
+ * swap_inr - swap position of two element.
  * @a: frist pointer.
  * @b: second pointer.
  * Return: none.
@@ -26,9 +26,11 @@ void swap_int(int *a, int *b)
  */
 void heapify(int *array, size_t size, size_t N, size_t i)
 {
-	size_t largest = i;
-	size_t left = 2 * i + 1;
-	size_t right = 2 * i + 2;
+	size_t left, right, largest;
+
+	largest = i;
+	left = 2 * i + 1;
+	right = 2 * i + 2;
 
 	if (left < N && array[left] > array[largest])
 		largest = left;
@@ -58,8 +60,9 @@ void heap_sort(int *array, size_t size)
 		return;
 
 	for (i = (size / 2) - 1; i >= 0; i--)
+	{
 		heapify(array, size, size, i);
-
+	}
 	for (i = size - 1; i >= 0; i--)
 	{
 		swap_int(array, array + i);
