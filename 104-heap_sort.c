@@ -20,9 +20,9 @@ void swap(int *a, int *b)
  *
  * Return: none.
  */
-void heapify(int *array, size_t size, size_t N, int i)
+void heapify(int *array, size_t size, size_t N, size_t i)
 {
-	int largest = i;
+	size_t largest = i;
 	size_t left = 2 * i + 1;
 	size_t right = 2 * i + 2;
 
@@ -50,7 +50,10 @@ void heap_sort(int *array, size_t size)
 {
 	int i;
 
-	for (i = size / 2 - 1; i >= 0; i--)
+	if (!array || size < 2)
+		return;
+
+	for (i = (size / 2) - 1; i >= 0; i--)
 		heapify(array, size, size, i);
 
 	for (i = size - 1; i >= 0; i--)
