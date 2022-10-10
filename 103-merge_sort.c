@@ -15,9 +15,11 @@ void merge_half(int *array, int l_start, int mid, int r_end)
 	int l_size = mid - l_start + 1;
 	int r_start = mid + 1;
 	int r_size = r_end - mid;
-	int L[l_size], R[r_size];
+	int *L, *R;
 	int i, j, index = l_start;
 
+	L = malloc(sizeof(int) * l_size);
+	R = malloc(sizeof(int) * r_size);
 	for (i = 0; i < l_size; i++)
 		L[i] = array[l_start + i];
 	for (j = 0; j < r_size; j++)
@@ -48,6 +50,8 @@ void merge_half(int *array, int l_start, int mid, int r_end)
 	{	array[index] = R[j];
 		j++;
 		index++;	}
+	free(L);
+	free(R);
 	printf("[Done]: ");
 	print_array(array, index);
 }
