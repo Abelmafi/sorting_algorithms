@@ -22,7 +22,7 @@ void swap(int *a, int *b)
  */
 void heapify(int *array, size_t size, size_t N, int i)
 {
-	size_t largest = i;
+	int largest = i;
 	size_t left = 2 * i + 1;
 	size_t right = 2 * i + 2;
 
