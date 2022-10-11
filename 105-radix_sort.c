@@ -33,8 +33,11 @@ void count_sort(int *array, int exp, size_t size)
 	size_t i;
 
 	count = malloc(sizeof(int) * size + 2);
+	if (!count)
+		return;
 	output = malloc(sizeof(int) * size);
-
+	if (!output)
+		return;
 	for (i = 0; i < size + 2; i++)
 		count[i] = 0;
 	for (i = 0; i < size; i++)
@@ -65,6 +68,8 @@ void radix_sort(int *array, size_t size)
 {
 	int i, max;
 
+	if (!array || size < 2)
+		return;
 	max = get_max(array, size);
 	for (i = 1; max / i > 0; i *= 10)
 		count_sort(array, i, size);
