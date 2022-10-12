@@ -81,5 +81,7 @@ void quick_sortt(int *array, size_t low, size_t high, size_t size)
  */
 void quick_sort_hoare(int *array, size_t size)
 {
+	if (!array || size < 2)
+		return;
 	quick_sortt(array, 0, size - 1, size);
 }
